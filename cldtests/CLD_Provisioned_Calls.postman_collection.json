@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "86dd8fe0-a756-4d42-810a-42ecf60a1f45",
+		"name": "CLD_Provisioned_Calls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tenant list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://nlbavwioncld.infor.com:29090/api/provision/v2/tenant/list"
+			},
+			"response": []
+		},
+		{
+			"name": "https://nlbavwioncld.infor.com:29090/api/provision/v2/tenant/ionccDetails",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9fa77b34-648b-4272-8818-72812f6a6483",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"NEW_PRD\");",
+							"});pm.test(\"Response time is less than 99999999ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(99999999);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://nlbavwioncld.infor.com:29090/api/provision/v2/tenant/ionccDetails"
+			},
+			"response": []
+		}
+	]
+}

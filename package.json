@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "cld provisioned calls testing in postman",
   "directories":
-  {
- 	"test": "cldtests"
- 	},
+  { "test": "cldtests"},
   "scripts": {
     "api-test-cld": "newman run cldtests/CLD_Provisioned_Calls.postman_collection.json -k" 
   },

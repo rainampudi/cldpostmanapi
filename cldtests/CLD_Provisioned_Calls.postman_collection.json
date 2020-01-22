@@ -7,7 +7,35 @@
 	"item": [
 		{
 			"name": "Tenant list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2b30a1db-50c4-402a-af06-f7a3fdec933d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"T1_PRD\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": {
+						"consumerSecret": "dIG0.YO_vMV6qKqAGYFY",
+						"consumerKey": "Q.g0MCFZoi1fXGyGqO.4",
+						"signatureMethod": "HMAC-SHA1",
+						"version": "1.0",
+						"addParamsToHeader": false,
+						"addEmptyParamsToSign": false
+					}
+				},
 				"method": "GET",
 				"header": [],
 				"url": "https://nlbavwioncld.infor.com:29090/api/provision/v2/tenant/list"
@@ -33,6 +61,17 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": {
+						"addParamsToHeader": true,
+						"consumerSecret": "dIG0.YO_vMV6qKqAGYFY",
+						"consumerKey": "Q.g0MCFZoi1fXGyGqO.4",
+						"signatureMethod": "HMAC-SHA1",
+						"version": "1.0",
+						"addEmptyParamsToSign": false
+					}
+				},
 				"method": "GET",
 				"header": [],
 				"url": "https://nlbavwioncld.infor.com:29090/api/provision/v2/tenant/ionccDetails"
